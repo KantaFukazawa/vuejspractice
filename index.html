@@ -9,7 +9,7 @@
  <body>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <div id="app">
-    <p>{{ message }}</p>
+    <p v-once>{{ message }}</p>
     <p>{{ number + 5 }}</p>
     <p>{{ OK ? 'YES' : 'NO' }}</p>
     <p>{{ sayHi() }}</p>
@@ -25,7 +25,8 @@
     },
     methods: {
       sayHi: function() {
-      return this.message;
+      this.message = "Hello Vuejs"
+      return "Hi";
       }
     }
    
