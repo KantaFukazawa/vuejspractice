@@ -16,6 +16,7 @@
     <p v-text="message"></p>
     <div>{{html}}</div>
     <div v-html="html"></div>
+    <a v-bind:href="url">Google</a>
   </div> 
   <script>
    new Vue({
@@ -24,7 +25,8 @@
       message: "Helloworld!",
       number: 3,
       OK: false,
-      html: '<h1>html</h1>'
+      html: '<h1>html</h1>',
+      url: "http://google.com"
     },
     methods: {
       sayHi: function() {
