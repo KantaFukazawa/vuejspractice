@@ -13,6 +13,7 @@
     <p>{{ number + 5 }}</p>
     <p>{{ OK ? 'YES' : 'NO' }}</p>
     <p>{{ sayHi() }}</p>
+    <p v-text="message"></p>
   </div> 
   <script>
    new Vue({
@@ -24,7 +25,7 @@
     },
     methods: {
       sayHi: function() {
-      return "Hi";
+      return this.message;
       }
     }
    
