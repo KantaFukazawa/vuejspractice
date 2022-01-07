@@ -31,8 +31,7 @@
     <p>{{message}}</p> -->
     <p>{{counter}}</p>
       <button @click="counter += 1">+1</button>
-      <p>{{ lessThanThree }}</p>
-
+      <p>{{ lessThanThreeComputed }}</p>
 
   </div> 
   <script>
@@ -58,8 +57,16 @@
       counter: 0
     },
     computed: {
-      lessThanThree: function() {
+      lessThanThreeComputed: function() {
         return this.counter > 3 ? "3より大きい" : "3より小さい"
+      }
+    },
+    watch: {
+      counter: function() {
+        var vm = this;
+        setTimeout(function(){
+          vm.counter = 0
+        }, 3000)
       }
     },
     methods: {
