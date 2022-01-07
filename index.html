@@ -26,6 +26,7 @@
     <span v-on:mousemove.stop>反応しないでください</span></p>
     <a v-on:click="noEvent" href="http://google.com">google</a>
     <p>x:{{ x }}, y:{{ y }}</p>
+    <input type="text" v-on:keyup.enter="myAlert">
   </div> 
   <script>
    new Vue({
@@ -64,6 +65,10 @@
 
       noEvent: function(event) {
         event.preventDefault()
+      },
+
+      myAlert: function() {
+        alert("アラート")
       }
     }
    
