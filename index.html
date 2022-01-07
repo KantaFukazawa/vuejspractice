@@ -9,7 +9,7 @@
  <body>
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <div id="app">
-    <p v-once>{{ message }}</p>
+    <!-- <p v-once>{{ message }}</p>
     <p>{{ number + 5 }}</p>
     <p>{{ OK ? 'YES' : 'NO' }}</p>
     <p>{{ sayHi() }}</p>
@@ -26,50 +26,54 @@
     <span v-on:mousemove.stop>反応しないでください</span></p>
     <a v-on:click="noEvent" href="http://google.com">google</a>
     <p>x:{{ x }}, y:{{ y }}</p>
-    <input type="text" v-on:keyup.enter="myAlert">
+    <input type="text" v-on:keyup.enter="myAlert"> -->
+    <input type="text" v-model="message">
+    <p>{{message}}</p>
+
   </div> 
   <script>
    new Vue({
     el: "#app",
     data: {
-      message: "Helloworld!",
-      number: 3,
-      OK: false,
-      html: '<h1>html</h1>',
-      url: "http://google.com",
-      attribute: "href",
-      urlTwitter: "http://twitter.com",
-      number: 32,
-      twitterObject: {
-        href: "http://twitter.com", 
-        id: 32
-      },
-      number: 0,
-      x: 0,
-      y:0
+      // message: "Helloworld!",
+      // number: 3,
+      // OK: false,
+      // html: '<h1>html</h1>',
+      // url: "http://google.com",
+      // attribute: "href",
+      // urlTwitter: "http://twitter.com",
+      // number: 32,
+      // twitterObject: {
+      //   href: "http://twitter.com", 
+      //   id: 32
+      // },
+      // number: 0,
+      // x: 0,
+      // y:0
+      message: "こんにちわ"
     },
     methods: {
-      sayHi: function() {
-      this.message = "Hello Vuejs"
-      return "Hi";
-      },
+      // sayHi: function() {
+      // this.message = "Hello Vuejs"
+      // return "Hi";
+      // },
 
-      countUp: function (time) {
-        this.number += 1*time
-      },
+      // countUp: function (time) {
+      //   this.number += 1*time
+      // },
 
-      changeMousePosition: function(divideNumber, event) {
-        this.x = event.clientX / divideNumber;
-        this.y = event.clientY / divideNumber;
-      },
+      // changeMousePosition: function(divideNumber, event) {
+      //   this.x = event.clientX / divideNumber;
+      //   this.y = event.clientY / divideNumber;
+      // },
 
-      noEvent: function(event) {
-        event.preventDefault()
-      },
+      // noEvent: function(event) {
+      //   event.preventDefault()
+      // },
 
-      myAlert: function() {
-        alert("アラート")
-      }
+      // myAlert: function() {
+      //   alert("アラート")
+      // }
     }
    
   })
