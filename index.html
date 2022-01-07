@@ -22,7 +22,9 @@
     <a v-bind="twitterObject">Twitter</a>
     <p>現在{{ number }}回クリック</p>
     <button v-on:click="countUp(2)">カウントアップ</button>
-    <p v-on:mousemove="changeMousePosition(10, $event)">マウスを載せてください</p>
+    <p v-on:mousemove="changeMousePosition(10, $event)">マウスを載せてください
+    <span v-on:mousemove.stop>反応しないでください</span></p>
+    <a v-on:click="noEvent" href="http://google.com">google</a>
     <p>x:{{ x }}, y:{{ y }}</p>
   </div> 
   <script>
@@ -58,8 +60,11 @@
       changeMousePosition: function(divideNumber, event) {
         this.x = event.clientX / divideNumber;
         this.y = event.clientY / divideNumber;
-      }
+      },
 
+      noEvent: function(event) {
+        event.preventDefault()
+      }
     }
    
   })
