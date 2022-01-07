@@ -27,8 +27,12 @@
     <a v-on:click="noEvent" href="http://google.com">google</a>
     <p>x:{{ x }}, y:{{ y }}</p>
     <input type="text" v-on:keyup.enter="myAlert"> -->
-    <input type="text" v-model="message">
-    <p>{{message}}</p>
+    <!-- <input type="text" v-model="message">
+    <p>{{message}}</p> -->
+    <p>{{counter}}</p>
+      <button @click="counter += 1">+1</button>
+      <p>{{ lessThanThree }}</p>
+
 
   </div> 
   <script>
@@ -50,7 +54,13 @@
       // number: 0,
       // x: 0,
       // y:0
-      message: "こんにちわ"
+      // message: "こんにちわ"
+      counter: 0
+    },
+    computed: {
+      lessThanThree: function() {
+        return this.counter > 3 ? "3より大きい" : "3より小さい"
+      }
     },
     methods: {
       // sayHi: function() {
