@@ -16,7 +16,14 @@
     <p v-text="message"></p>
     <div>{{html}}</div>
     <div v-html="html"></div>
-    <a v-bind:href="url">Google</a>
+    <a :[attribute]="url">Google</a>
+    <a :href="urlTwitter" :id="number">Twitter</a>
+    <a v-bind="{href:urlTwitter, id:number}">Twitter</a>
+    <a v-bind="twitterObject">Twitter</a>
+    <p>現在{{ number }}回クリック</p>
+    <button v-on:click="countUp(2)">カウントアップ</button>
+    <p v-on:mousemove="changeMousePosition(10, $event)">マウスを載せてください</p>
+    <p>x:{{ x }}, y:{{ y }}</p>
   </div> 
   <script>
    new Vue({
@@ -26,13 +33,33 @@
       number: 3,
       OK: false,
       html: '<h1>html</h1>',
-      url: "http://google.com"
+      url: "http://google.com",
+      attribute: "href",
+      urlTwitter: "http://twitter.com",
+      number: 32,
+      twitterObject: {
+        href: "http://twitter.com", 
+        id: 32
+      },
+      number: 0,
+      x: 0,
+      y:0
     },
     methods: {
       sayHi: function() {
       this.message = "Hello Vuejs"
       return "Hi";
+      },
+
+      countUp: function (time) {
+        this.number += 1*time
+      },
+
+      changeMousePosition: function(divideNumber, event) {
+        this.x = event.clientX / divideNumber;
+        this.y = event.clientY / divideNumber;
       }
+
     }
    
   })
